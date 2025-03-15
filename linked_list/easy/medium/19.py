@@ -15,10 +15,13 @@ class Solution:
 
         while count < n:
             fast = fast.next
+
         if fast == None:
             return head.next
+        
         while fast.next != None:
             fast = fast.next
             slow = slow.next
         
-        return 0
+        slow.next = slow.next.next
+        return head
