@@ -26,3 +26,10 @@ class Solution:
             curr = curr.next
         return dummy.next
 ```
+1. make a list: pq, stores all head nodes of all non-empty linked lists
+2. turn pq into a heap, the minimum value will be placed at the top
+3. create a dummy node as the answer linked list, curr node to create the linked list
+4. while pq is not empty, pop the top of the heap (min value)
+5. if that popped node is connected to a node: push that node into the heap, making sure the next node is involved with the heap
+6. connect the popped node to curr, move curr forward
+7. return the dummy.next chain
