@@ -1,8 +1,6 @@
 # Problem 23
 ## Merge k Sorted Lists
-[Go to code](linked_list\hard\23.merge_k_sorted_lists.py)
-[Go to my website]()
-code:
+**code:**
 ```
 from typing import List, Optional
 import heapq
