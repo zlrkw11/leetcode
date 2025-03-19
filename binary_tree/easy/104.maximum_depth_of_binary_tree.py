@@ -8,15 +8,15 @@ class TreeNode:
 
 class Solution:
     def maxDepth(self, root: Optional[TreeNode]) -> int:
-        return bfs(root)
-    
-def bfs(node):
+        return dfs(root)
+
+def dfs(node):
     if not node:
         return 0
-    left = bfs(node.left)
-    right = bfs(node.right)
+    left = dfs(node.left)
+    right = dfs(node.right)
     return max(left, right)+1
-    
+
 # Test cases
 root = TreeNode(1)
 root.left = TreeNode(2)
@@ -25,5 +25,4 @@ root.left.left = TreeNode(4)
 root.left.right = TreeNode(5)
 
 sol = Solution()
-print(sol.maxDepth(root)) 
-        
+print(sol.maxDepth(root))
