@@ -8,24 +8,12 @@ class TreeNode:
 
 class Solution:
     def isBalanced(self, root: Optional[TreeNode]) -> bool:
-        self.min_depth = 0
-        self.max_depth = 0
-        def dfs_max(node):
-            if not node:
-                return 0
-            left = dfs_max(node.left)
-            right = dfs_max(node.right)
-            self.max_depth = max(left,right,self.max_depth)
+        def height(node):
+            if node == None:
+                return -1
+            left = height(node)
+            right = height(node)
+            if left==-1 or right==-1 or abs(left-right)>1:
+                return -1
             return max(left, right)+1
-
-        def dfs_min(node):
-            if not node:
-                return 0
-            left = dfs_max(node.left)
-            right = dfs_max(node.right)
-            self.min_depth = min(left,right,self.min_depth)
-            return min(left, right)+1
-
-        dfs_max(root)
-        dfs_min(root)
-        return self.max_depth - self.min_depth>1
+        return False
