@@ -33,7 +33,10 @@ def insert(root, key):
     else:
         root.left = insert(root.left, key)
     return root
-
-
-
 ```
+
+> if there is not a node at the **parent node**'s left or right ```(node == none)```\
+  we create a new node and **return** that node\
+  as the recursion unwinds, we will go back to the previous step where it connects the\
+  parent node with the new node we just created: ```root.left = insert(root.left, key)```\
+  which gives us a new connection.
