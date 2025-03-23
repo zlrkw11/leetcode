@@ -49,3 +49,33 @@ essentially, we are following simple steps for the **bfs** (for more info []())
 8. ```if node.left:q.append(node.left) if node.right:q.append(node.right)``` add left / right nodes to the **queue** if they exist and they will be **processed** in the next iteration
 9. append ```lvl``` array into **ans** array
 10. return ```ans```
+
+### 199 Binary Tree Right Side View
+
+#### DFS approach
+This approach will be simply traverse through the binary tree from **right to left**.
+1. pass an array ```ans``` which is empty as the returing value from the recursion
+2. if the current node is null, we reached a child - ```None``` of a leaf node so return and cut off recirsopm
+3. ```len(ans)``` stands for the number of levels of the tree we have recorded and processed, ```depth``` means the current recursion level (starting from 0)
+4. ```if len(ans) == depth``` means that if the ans array's length is the same as depth, that means we have not recorded the node for the current level yet
+5. so, append the current node
+6. recursive iteration --> right first, left second
+
+*note* purpose of ```depth```:
+> depth means how deep the current recursion is (the no. of levels the current node is sitting on in the tree) and it is the **core** of the DFS approach
+
+2 main uses for depth:
+
+controls when ```ans``` adds a new node (only 1 node per level)
+
+makes sure that the right side is always accessed first and recorded first
+
+essentially, we skip the processing part for left nodes whenever we see a right node and make depth+=1, pass the
+right node into dfs recursion again. This mechanic will cause our approach to make sure the right
+side of the tree is always processed first because the left side will only start processing when
+the right side reaches the end.
+
+Also since the len(ans) has to match with depth value. So, say the recursion is finished for the right side
+and the left side is called, the nodes from the start all the way to len(ans) == depth will be ignored and that is what
+we want. (1 node per level and it must be the rightmost node)
+#### BFS approach
