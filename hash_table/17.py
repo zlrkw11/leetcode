@@ -9,3 +9,8 @@ class Solution:
             s = d[int(num)-2]
             ans = [a+b for a in ans for b in s]
         return ans
+
+# same as:
+# for a in ans:
+#     for b in s:
+#         result.append(a + b)
