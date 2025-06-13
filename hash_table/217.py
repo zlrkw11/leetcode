@@ -2,10 +2,10 @@
 from typing import List
 class Solution:
     def containsDuplicate(self, nums: List[int]) -> bool:
-        d = {}
+        map = {}
         for i,n in enumerate(nums):
-            if n not in d:
-                d[n] = 1
+            if n not in map:
+                map[n]= 1
             else:
                 return True
         return False
