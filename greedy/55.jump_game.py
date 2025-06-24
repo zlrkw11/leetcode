@@ -1,10 +1,13 @@
 from typing import List
 class Solution:
     def canJump(self, nums: List[int]) -> bool:
-        mx = 0
-        for i,x in enumerate(nums):
-            if mx < i:
-                return False
-            mx = max(mx, i+x)
-        return True
+        goal = len(nums)-1
+        for i in range(len(nums)-1, -1, -1):
+            if i + nums[i] >= goal:
+                goal = i
+        if goal == 0:
+            return True
+        return False
 
+solution = Solution()
+print(solution.canJump([2,3,1,1,4]))
