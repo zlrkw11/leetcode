@@ -5,7 +5,6 @@ from typing import List
 class Solution:
     def candy(self, ratings: List[int]) -> int:
         arr = [1 for i in range(len(ratings))]
-        print (arr)
         if len(arr)<2:
             return 1
         if len(arr) == 0:
@@ -13,13 +12,20 @@ class Solution:
         for i in range(len(arr)):
             if i == 0:
                 if ratings[i] > ratings[i+1]:
-                    arr[i] = arr[i+1]+1
+                    arr[i] = 2
             elif i == len(arr)-1:
                 if ratings[i] > ratings[i-1]:
                     arr[i] = arr[i-1]+1
             else:
-                if ratings[i] == max(ratings[i-1], ratings[i+1], ratings[i]):
-                    arr[i] = max(arr[i-1], arr[i+1])+1
+                if ratings[i] > ratings[i-1]:
+                    arr[i] = arr[i-1]+1
+                    if ratings[i] > ratings[i+1]:
+                        arr[i]+=1
+                elif ratings[i] > ratings[i+1]:
+                    arr[i] = arr[i+1]+1
+                
         return sum(arr)
 s = Solution()
-print(s.candy([1,0,2]))
+print(s.candy([29,51,87,87,72,12]))
+
+# 1 2 3 3 2 1
