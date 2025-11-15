@@ -9,24 +9,13 @@ class Solution:
             return 1
         if len(arr) == 0:
             return 0
-        for i in range(len(arr)):
-            if i == 0:
-                if ratings[i] > ratings[i+1]:
-                    arr[i] = 2
-                    print(ratings[i], arr[i])
-            elif i == len(arr)-1:
-                if ratings[i] > ratings[i-1]:
-                    arr[i] = arr[i-1]+1
-                    print(ratings[i], arr[i])
-            else:
-                if ratings[i] > ratings[i-1]:
-                    arr[i] = arr[i-1]+1
-                    print(ratings[i], arr[i])
-                elif ratings[i] < ratings[i-1]:
-                    arr[i] = arr[i-1]-1
-                    print(ratings[i-1], arr[i-1])
-                else:
-                    arr[i] = arr[i-1]
+        for i in range(1, len(ratings)):
+            if ratings[i] > ratings[i-1]:
+                arr[i] = arr[i-1] + 1
+        
+        for i in range(len(ratings)-2,-1, -1):
+            if ratings[i] > ratings[i+1]:
+                arr[i] = max(arr[i], arr[i+1]+1)
                 
         return sum(arr)
 s = Solution()
