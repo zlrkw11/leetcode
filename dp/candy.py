@@ -13,16 +13,20 @@ class Solution:
             if i == 0:
                 if ratings[i] > ratings[i+1]:
                     arr[i] = 2
+                    print(ratings[i], arr[i])
             elif i == len(arr)-1:
                 if ratings[i] > ratings[i-1]:
                     arr[i] = arr[i-1]+1
+                    print(ratings[i], arr[i])
             else:
                 if ratings[i] > ratings[i-1]:
                     arr[i] = arr[i-1]+1
-                    if ratings[i] > ratings[i+1]:
-                        arr[i]+=1
-                elif ratings[i] > ratings[i+1]:
-                    arr[i] = arr[i+1]+1
+                    print(ratings[i], arr[i])
+                elif ratings[i] < ratings[i-1]:
+                    arr[i] = arr[i-1]-1
+                    print(ratings[i-1], arr[i-1])
+                else:
+                    arr[i] = arr[i-1]
                 
         return sum(arr)
 s = Solution()
