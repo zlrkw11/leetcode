@@ -1,5 +1,5 @@
 
-public class ListNode {
+class ListNode {
     int val;
     ListNode next;
 
@@ -14,9 +14,11 @@ public class ListNode {
         this.val = val;
         this.next = next;
     }
+
 }
 
-class Solution {
+public class S206 {
+
     public ListNode reverseList(ListNode head) {
         ListNode prev = null;
         ListNode curr = head;
