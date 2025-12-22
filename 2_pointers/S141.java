@@ -16,10 +16,14 @@ public class S141 {
             HashMap<ListNode, Number> map = new HashMap<>();
             ListNode curr = head;
             while (curr.next != null) {
-
+                if (map.containsKey(curr)) {
+                    return true;
+                }
+                map.put(curr, 1);
+                curr = curr.next;
             }
 
-            return true;
+            return false;
         }
     }
 }
