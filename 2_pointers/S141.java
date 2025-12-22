@@ -15,7 +15,7 @@ public class S141 {
         public boolean hasCycle(ListNode head) {
             HashMap<ListNode, Number> map = new HashMap<>();
             ListNode curr = head;
-            while (curr.next != null) {
+            while (curr != null) {
                 if (map.containsKey(curr)) {
                     return true;
                 }
