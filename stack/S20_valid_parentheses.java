@@ -23,7 +23,10 @@ public class S20_valid_parentheses {
                 }
 
             }
-            return true;
+            if (stk.isEmpty()) {
+                return true;
+            }
+            return false;
         }
     }
 }
