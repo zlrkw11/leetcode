@@ -17,7 +17,9 @@ public class S209_minimum_size_subarray_sum {
                     left++;
                 }
             }
-
+            if (minLen == Integer.MAX_VALUE) {
+                return 0;
+            }
             return minLen;
         }
     }
