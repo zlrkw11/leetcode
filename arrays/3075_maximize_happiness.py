@@ -12,6 +12,6 @@ class Solution:
                 total_sum += curr
 
             else:
-                return 
+                break
                     
         return total_sum
