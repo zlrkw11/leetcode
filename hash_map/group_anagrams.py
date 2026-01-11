@@ -6,10 +6,11 @@ class Solution:
         d = {}
         for word in strs:
             print("".join(sorted(word)))
-            if "".join(sorted(word)) not in d:
-                d["".join(sorted(word))] = [word]
+            t = "".join(sorted(word))
+            if t not in d:
+                d[t] = [word]
             else:
-                d["".join(sorted(word))].append(word)
+                d[t].append(word)
         
         print(d.values())
         return list(d.values())
