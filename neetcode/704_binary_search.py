@@ -8,7 +8,7 @@ class Solution:
             m=(l+r)//2
             if nums[m] > target:
                 r = m-1
-            elif nums[l] > target:
+            elif nums[m] > target:
                 l = m+1
             else:
                 return m
