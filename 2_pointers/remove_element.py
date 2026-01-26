@@ -1,9 +1,0 @@
-class Solution:
-    def removeElement(self, nums: list[int], val: int) -> int:
-        for i in range(len(nums)-1, -1, -1):
-            if nums[i] == val:
-                nums.pop(i)
-        return len(nums)
-
-s = Solution()
-print(s.removeElement([2,2,1,2], 2))
