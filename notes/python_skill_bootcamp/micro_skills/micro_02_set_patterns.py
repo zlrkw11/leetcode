@@ -60,7 +60,7 @@ def longest_non_repeat_prefix(text: str) -> int:
         if t in curr:
             if len(curr) > rec:
                 rec = len(curr)
-            curr = set()
+            return rec 
         
 
         else:
