@@ -25,7 +25,12 @@ def intersection_sorted(a: List[int], b: List[int]) -> List[int]:
     TODO:
     返回 a 和 b 的交集（去重），并按升序输出。
     """
-    raise NotImplementedError("实现 intersection_sorted")
+    sa = set(a)
+    sb = set(b)
+
+    c = sa.intersection(sb)
+    return sorted(c)
+    
 
 
 def first_repeated_value(nums: List[int]) -> int:
@@ -34,7 +39,11 @@ def first_repeated_value(nums: List[int]) -> int:
     返回第一个重复出现的值（按扫描顺序），若无重复返回 -1。
     提示：用 visited set。
     """
-    raise NotImplementedError("实现 first_repeated_value")
+    visited = set()
+    for n in nums:
+        if n in visited:
+            return -1
+        visited.add(n)
 
 
 def longest_non_repeat_prefix(text: str) -> int:
@@ -43,7 +52,19 @@ def longest_non_repeat_prefix(text: str) -> int:
     从左往右扫描，返回“前缀中没有重复字符”的最大长度。
     示例：'abca' -> 3（'abc'）
     """
-    raise NotImplementedError("实现 longest_non_repeat_prefix")
+    rec = 0
+    curr = set()
+    for t in text:
+
+        if t in curr:
+            curr = set()
+            if len(curr) > rec:
+                rec = len(curr)
+
+        else:
+            curr.add(t)
+    return rec  
+
 
 
 def run_checks() -> None:
