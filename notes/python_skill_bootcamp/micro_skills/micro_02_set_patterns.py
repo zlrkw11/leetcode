@@ -42,8 +42,9 @@ def first_repeated_value(nums: List[int]) -> int:
     visited = set()
     for n in nums:
         if n in visited:
-            return -1
+            return n 
         visited.add(n)
+    return -1
 
 
 def longest_non_repeat_prefix(text: str) -> int:
@@ -57,13 +58,15 @@ def longest_non_repeat_prefix(text: str) -> int:
     for t in text:
 
         if t in curr:
-            curr = set()
             if len(curr) > rec:
                 rec = len(curr)
+            curr = set()
+        
 
         else:
             curr.add(t)
-    return rec  
+            
+    return max(rec, len(curr))  
 
 
 
